@@ -5,6 +5,5 @@ data <- read.table(unz(temp, "household_power_consumption.txt"), sep=";", header
 unlink(temp)
 data$Date<-as.Date(data$Date, format="%d/%m/%Y")
 data.2007<-subset(data, Date >="2007-02-01" & Date <="2007-02-02")
-data.2007$Time<-strptime(data.2007$Time, format="%H:%M:%S")
 hist(data.2007$Global_active_power, main="Global Active Power", xlab="Global Active Power (kilowatts)", col="red")
 dev.off()
